@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let lotto = [];
+      while (lotto.length < 6) {
+        let num = parseInt(Math.random() * 45 + 1);
+        if (lotto.indexOf(num) == -1) {
+          lotto.push(num);
+        }
+      }
+
+      lotto.sort((a, b) => a - b);
+
+      console.log(lotto[0]);
+      console.log(lotto[1]);
+      console.log(lotto[2]);
+      console.log(lotto[3]);
+      console.log(lotto[4]);
+      console.log(lotto[5]);
+    </script>
+  </body>
+</html>
