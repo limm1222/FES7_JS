@@ -40,7 +40,6 @@ function pow(x) {
 }
 
 let pow = (x) => x * x;
-let pow = (x) => x * x;
 
 // 4. 즉시 실행 함수
 (function () {
