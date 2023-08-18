@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>강사님 코드</title>
+    <!-- <link rel="stylesheet" href="../reset.css"> -->
+    <style>
+      .canvas {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background-color: black;
+      }
+
+      .canvas.red {
+        background-color: red;
+      }
+
+      .canvas.yellow {
+        background-color: yellow;
+      }
+
+      .canvas.green {
+        background-color: green;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        width: 500px;
+        margin: 50px auto 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="canvas"></div>
+    <ul>
+      <li><button type="button" class="btn-red">빨강</button></li>
+      <li><button type="button" class="btn-yellow">노랑</button></li>
+      <li><button type="button" class="btn-green">초록</button></li>
+    </ul>
+
+    <script>
+      //1번째 방법
+      const canvas = document.querySelector(".canvas"),
+        btnRed = document.querySelector(".btn-red"),
+        btnYellow = document.querySelector(".btn-yellow"),
+        btnGreen = document.querySelector(".btn-green");
+
+      btnRed.addEventListener("click", function () {
+        canvas.classList.add("red");
+      });
+
+      btnYellow.addEventListener("click", function () {
+        canvas.classList.add("yellow");
+      });
+
+      btnGreen.addEventListener("click", function () {
+        canvas.classList.add("green");
+      });
+
+      //2번째 방법
+      const canvas = document.querySelector(".canvas"),
+        btns = document.querySelectorAll("[class^=btn]");
+
+      btns.forEach((itemBtn) => {
+        itemBtn.addEventListener("click", () => {
+          canvas.classList.remove("red", "yellow", "green");
+          if (itemBtn.classList.contains("btn-red")) {
+            canvas.classList.add("red");
+          } else if (itemBtn.classList.contains("btn-yellow")) {
+            canvas.classList.add("yellow");
+          } else if (itemBtn.classList.contains("btn-green")) {
+            canvas.classList.add("green");
+          }
+        });
+      });
+
+      //3번째 방법
+      const canvas = document.querySelector(".canvas"),
+        btns = document.querySelectorAll("button");
+
+      btns.forEach((itemBtn) => {
+        itemBtn.addEventListener("click", () => {
+          canvas.className = "canvas";
+          canvas.classList.add(itemBtn.className);
+        });
+      });
+    </script>
+  </body>
+</html>
